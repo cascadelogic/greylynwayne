@@ -4,12 +4,20 @@ import Image from "next/image";
 const services = [
   { name: "Home Staging", href: "/home-staging" },
   { name: "Interior Design", href: "/interior-design" },
+  { name: "New Construction", href: "/new-construction-staging" },
+  { name: "Short-Term Rental", href: "/short-term-rental-design" },
+  { name: "Furniture Rental", href: "/furniture-request" },
   { name: "Street of Dreams", href: "/street-of-dreams" },
   { name: "Portfolio", href: "/portfolio" },
 ];
 
 const company = [
   { name: "About Us", href: "/about" },
+  { name: "Meet Jody Wallace", href: "/meet-jody-wallace" },
+  { name: "Reviews", href: "/reviews" },
+  { name: "Service Areas", href: "/service-areas" },
+  { name: "Blog", href: "/blog" },
+  { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
 
