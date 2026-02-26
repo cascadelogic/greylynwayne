@@ -288,8 +288,8 @@ export default function Home() {
       <section className="relative py-24 lg:py-32">
         <div className="absolute inset-0">
           <Image
-            src="/images/before-after.jpg"
-            alt="Beautifully staged Portland home interior by Greylyn Wayne"
+            src="/images/hero-staging.webp"
+            alt="Beautifully staged Portland kitchen by Greylyn Wayne — bright white cabinetry with natural wood and gold accents"
             fill
             className="object-cover"
           />
