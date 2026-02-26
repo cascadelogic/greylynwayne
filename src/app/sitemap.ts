@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
+import { cities } from "@/data/service-areas";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.greylynwayne.com";
   const now = new Date();
 
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
     { url: `${baseUrl}/home-staging`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/interior-design`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
@@ -24,4 +25,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/careers`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
     { url: `${baseUrl}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
   ];
+
+  const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
+    url: `${baseUrl}/service-areas/${city.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...cityPages];
 }

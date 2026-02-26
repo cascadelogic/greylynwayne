@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
+import { cities } from "@/data/service-areas";
 
 export const metadata: Metadata = {
   title:
@@ -10,79 +11,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.greylynwayne.com/service-areas" },
 };
 
-const areas = [
-  {
-    region: "Portland Metro",
-    cities: [
-      "Portland",
-      "Lake Oswego",
-      "West Linn",
-      "Beaverton",
-      "Tigard",
-      "Tualatin",
-      "Hillsboro",
-      "Sherwood",
-      "Wilsonville",
-      "Oregon City",
-      "Happy Valley",
-      "Milwaukie",
-      "Canby",
-      "Newberg",
-      "Gresham",
-      "Bethany",
-    ],
-  },
-  {
-    region: "Portland Neighborhoods",
-    cities: [
-      "Pearl District",
-      "Forest Park",
-      "Irvington",
-      "Laurelhurst",
-      "Sellwood",
-      "Alberta Arts",
-      "Hillside",
-      "Goose Hollow",
-      "Eastmoreland",
-      "Hawthorne",
-      "Division",
-      "Mississippi",
-      "St. Johns",
-      "Woodstock",
-    ],
-  },
-  {
-    region: "Central & Eastern Oregon",
-    cities: [
-      "Bend",
-      "Sunriver",
-      "Hood River",
-      "Cascade Locks",
-      "Government Camp",
-      "Welches",
-      "Rhododendron",
-      "Brightwood",
-    ],
-  },
-  {
-    region: "Willamette Valley",
-    cities: ["Eugene", "Salem", "Corvallis", "Albany"],
-  },
-  {
-    region: "Oregon Coast",
-    cities: [
-      "Cannon Beach",
-      "Astoria",
-      "Manzanita",
-      "Gearhart",
-      "Seaside",
-      "Lincoln City",
-    ],
-  },
-  {
-    region: "Southwest Washington",
-    cities: ["Vancouver", "Camas", "Ridgefield", "Washougal", "Battle Ground"],
-  },
+const regions = [
+  "Portland Metro",
+  "Central Oregon",
+  "Columbia River Gorge",
+  "Willamette Valley",
+  "Oregon Coast",
+  "Southwest Washington",
 ];
 
 const areaFaqs = [
@@ -132,28 +67,34 @@ export default function ServiceAreasPage() {
         </div>
       </section>
 
-      {/* Areas grid */}
+      {/* Areas grid by region */}
       <section className="pb-24 lg:pb-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {areas.map((area) => (
-              <div key={area.region} className="bg-warm p-8">
-                <h2 className="font-[family-name:var(--font-playfair)] text-xl mb-4">
-                  {area.region}
-                </h2>
-                <ul className="space-y-2">
-                  {area.cities.map((city) => (
-                    <li
-                      key={city}
-                      className="text-charcoal-light text-sm flex items-center gap-2"
-                    >
-                      <span className="text-teal text-xs">&#9670;</span>
-                      {city}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {regions.map((region) => {
+              const regionCities = cities.filter((c) => c.region === region);
+              if (regionCities.length === 0) return null;
+              return (
+                <div key={region} className="bg-warm p-8">
+                  <h2 className="font-[family-name:var(--font-playfair)] text-xl mb-4">
+                    {region}
+                  </h2>
+                  <ul className="space-y-2">
+                    {regionCities.map((city) => (
+                      <li key={city.slug}>
+                        <Link
+                          href={`/service-areas/${city.slug}`}
+                          className="text-charcoal-light hover:text-teal text-sm flex items-center gap-2 transition-colors"
+                        >
+                          <span className="text-teal text-xs">&#9670;</span>
+                          {city.name}, {city.stateShort}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
