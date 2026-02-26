@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Street of Dreams Designer | Luxury Home Staging & Interiors",
+  title:
+    "Street of Dreams Designer Portland | 4x Featured Interior Designer",
   description:
-    "Greylyn Wayne was honored to be a featured designer for the NW Natural Street of Dreams in 2019, 2021, 2024, and 2025. Explore our luxury home designs.",
+    "Greylyn Wayne is a 4x featured designer at the NW Natural Street of Dreams (2019, 2021, 2024, 2025). 2019 People's & Professional's Best Interior Design winner. Portland, Oregon — (971) 930-0220.",
+  alternates: { canonical: "https://www.greylynwayne.com/street-of-dreams" },
+  openGraph: {
+    title: "Street of Dreams Designer | Greylyn Wayne — Portland, OR",
+    description:
+      "4x featured designer at the NW Natural Street of Dreams. 2019 People's & Professional's Best Interior Design winner.",
+    url: "https://www.greylynwayne.com/street-of-dreams",
+    images: [{ url: "/images/og-image.png" }],
+  },
 };
 
 const homes = [
@@ -49,6 +59,13 @@ const allaFamigliaDetails = [
 export default function StreetOfDreamsPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Street of Dreams", href: "/street-of-dreams" },
+        ]}
+      />
+
       {/* Hero */}
       <section className="relative pt-20">
         <div className="relative h-[60vh] min-h-[400px]">
@@ -201,9 +218,9 @@ export default function StreetOfDreamsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-teal text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors"
+            className="inline-block bg-teal text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors font-medium"
           >
-            Start Your Project
+            Bring This Craftsmanship to Your Home
           </Link>
         </div>
       </section>

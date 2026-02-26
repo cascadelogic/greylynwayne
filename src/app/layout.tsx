@@ -3,6 +3,8 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
+import { LocalBusinessJsonLd } from "@/components/JsonLd";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -19,32 +21,53 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.greylynwayne.com"),
   title: {
-    default: "Greylyn Wayne | Home Staging & Interior Design — Portland, Oregon",
-    template: "%s | Greylyn Wayne",
+    default:
+      "Greylyn Wayne | Home Staging & Interior Design — Portland, Oregon",
+    template: "%s | Greylyn Wayne — Portland, OR",
   },
   description:
-    "Portland's trusted home staging and interior design experts. We transform spaces into stunning showcases that sell faster and feel like home. Contact us for a free consultation.",
+    "Portland's award-winning home staging and interior design company. 4x Street of Dreams featured designer. Sell your home faster or transform your living space. Free consultation — (971) 930-0220.",
   keywords: [
     "home staging Portland",
+    "home staging Portland Oregon",
     "interior design Portland",
-    "home staging Oregon",
     "interior designer Portland Oregon",
-    "luxury home staging",
-    "Street of Dreams designer",
+    "home stager Portland",
+    "luxury home staging Oregon",
+    "Street of Dreams designer Portland",
+    "vacant home staging Portland",
+    "occupied home staging",
+    "model home staging Oregon",
+    "home staging near me",
+    "interior design near me Portland",
   ],
   openGraph: {
-    title: "Greylyn Wayne | Home Staging & Interior Design — Portland, Oregon",
+    title:
+      "Greylyn Wayne | Home Staging & Interior Design — Portland, Oregon",
     description:
-      "Create the home of your dreams with our expert interior design and home staging services in Portland. Contact us today for a free consultation.",
+      "Portland's award-winning home staging & interior design company. 4x Street of Dreams featured designer. Free consultation — (971) 930-0220.",
     url: "https://www.greylynwayne.com",
     siteName: "Greylyn Wayne",
     images: [{ url: "/images/og-image.png", width: 2500, height: 1330 }],
     locale: "en_US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Greylyn Wayne | Home Staging & Interior Design — Portland, OR",
+    description:
+      "Portland's award-winning home staging & interior design company. Free consultation — (971) 930-0220.",
+    images: ["/images/og-image.png"],
+  },
   icons: {
     icon: "/images/favicon.png",
     apple: "/images/favicon.png",
+  },
+  alternates: {
+    canonical: "https://www.greylynwayne.com",
+  },
+  verification: {
+    google: "ADD_GOOGLE_VERIFICATION_CODE",
   },
 };
 
@@ -56,9 +79,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body>
+        <LocalBusinessJsonLd />
         <Header />
         <main>{children}</main>
         <Footer />
+        <StickyMobileCTA />
       </body>
     </html>
   );

@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "About Us | Portland Home Staging & Design Team",
+  title: "About Greylyn Wayne | Portland Home Staging & Interior Design Team",
   description:
-    "Meet the Greylyn Wayne team. Founded in 2015 by Jody Wallace, we're a family-run Portland design studio specializing in home staging and interior design.",
+    "Meet the Greylyn Wayne team. Founded in 2015 by Jody Wallace, a 20+ year design veteran and 4x Street of Dreams featured designer. Family-run Portland studio — (971) 930-0220.",
+  alternates: { canonical: "https://www.greylynwayne.com/about" },
+  openGraph: {
+    title: "About Greylyn Wayne | Portland Home Staging & Design Team",
+    description:
+      "Founded in 2015 by Jody Wallace, a 20+ year design veteran and 4x Street of Dreams featured designer. Family-run Portland design studio.",
+    url: "https://www.greylynwayne.com/about",
+    images: [{ url: "/images/og-image.png" }],
+  },
 };
 
 const values = [
@@ -34,12 +43,19 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "About", href: "/about" },
+        ]}
+      />
+
       {/* Hero */}
       <section className="relative pt-20">
         <div className="relative h-[50vh] min-h-[400px]">
           <Image
             src="/images/home-staging-1.webp"
-            alt="Greylyn Wayne design studio"
+            alt="Greylyn Wayne design studio — industrial loft staged living room in Portland, Oregon"
             fill
             className="object-cover"
             priority
@@ -93,7 +109,7 @@ export default function AboutPage() {
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
                 src="/images/home-staging-2.jpg"
-                alt="Greylyn Wayne interior design"
+                alt="Modern Portland kitchen designed by Greylyn Wayne with white cabinetry and open shelving"
                 fill
                 className="object-cover"
               />
@@ -110,7 +126,7 @@ export default function AboutPage() {
               <div className="relative aspect-[3/4] overflow-hidden bg-teal-bg">
                 <Image
                   src="/images/street-of-dreams.webp"
-                  alt="Interior design by Jody Wallace"
+                  alt="Interior design by Jody Wallace — Alla Famiglia Street of Dreams dining room featuring modern chandelier and built-in cabinetry"
                   fill
                   className="object-cover"
                 />
@@ -188,9 +204,9 @@ export default function AboutPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-teal-dark px-10 py-4 text-sm tracking-wider uppercase hover:bg-cream transition-colors"
+            className="inline-block bg-white text-teal-dark px-10 py-4 text-sm tracking-wider uppercase hover:bg-cream transition-colors font-medium"
           >
-            Get in Touch
+            Schedule Your Free Consultation
           </Link>
         </div>
       </section>

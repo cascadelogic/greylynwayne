@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  BreadcrumbJsonLd,
+  ServiceJsonLd,
+  FAQJsonLd,
+} from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Interior Designer Portland Oregon | Home Transformations",
+  title: "Interior Designer Portland, Oregon | Full-Service Home Design",
   description:
-    "Discover expert interior design services in Portland, Oregon. Full-service design from concept to completion — spatial planning, color consultation, furniture sourcing & more.",
+    "Expert interior design services in Portland, OR by Greylyn Wayne. Full-service design, consultations, spatial planning, color consultation & custom furniture sourcing. Free consultation — (971) 930-0220.",
+  alternates: { canonical: "https://www.greylynwayne.com/interior-design" },
+  openGraph: {
+    title: "Interior Designer Portland, Oregon | Greylyn Wayne",
+    description:
+      "Full-service interior design in Portland. From concept to completion — spatial planning, color consultation, furniture sourcing & more. Free consultation.",
+    url: "https://www.greylynwayne.com/interior-design",
+    images: [{ url: "/images/og-image.png" }],
+  },
 };
 
 const designServices = [
@@ -17,7 +30,7 @@ const designServices = [
   {
     title: "Design Consultations",
     description:
-      "Expert guidance to help you visualize your space and make confident design decisions. Perfect for those who want professional direction with a DIY approach.",
+      "Expert guidance to help you visualize your space and make confident design decisions. Perfect for homeowners who want professional direction.",
   },
   {
     title: "Color & Material Selection",
@@ -50,30 +63,74 @@ const rooms = [
   "Home Office",
   "Outdoor Living",
   "Nursery & Kids",
+  "Basement",
+  "Entryway",
+];
+
+const designFaqs = [
+  {
+    question: "How much does interior design cost in Portland?",
+    answer:
+      "Interior design costs vary based on the scope of your project — from a single-room refresh to a full-home redesign. We offer free consultations to understand your vision and provide a detailed proposal. Our goal is to deliver exceptional design at a price point that makes sense for your project.",
+  },
+  {
+    question: "What's the difference between a design consultation and full-service design?",
+    answer:
+      "A design consultation is a one-time session where we assess your space, provide recommendations, and create an actionable plan you can execute yourself. Full-service design means we handle everything from concept to completion — mood boards, sourcing, procurement, installation, and final styling.",
+  },
+  {
+    question: "How long does an interior design project take?",
+    answer:
+      "Timeline depends on the project scope. A single-room refresh can be completed in 4-6 weeks, while a full-home redesign may take 3-6 months. During your consultation, we'll provide a realistic timeline based on your specific project and goals.",
+  },
+  {
+    question: "Do you design Airbnb and vacation rental properties?",
+    answer:
+      "Yes! We specialize in short-term rental design that maximizes bookings and guest experience. We handle everything from design concept to furniture sourcing, delivery, and installation — creating spaces that earn 5-star reviews.",
+  },
 ];
 
 export default function InteriorDesignPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Interior Design", href: "/interior-design" },
+        ]}
+      />
+      <ServiceJsonLd
+        name="Interior Design Services in Portland, Oregon"
+        description="Full-service interior design in Portland, Oregon. Spatial planning, color consultation, custom furniture sourcing, mood boards, and complete room transformations for homes and commercial spaces."
+        url="/interior-design"
+      />
+      <FAQJsonLd faqs={designFaqs} />
+
       {/* Hero */}
       <section className="relative pt-20">
         <div className="relative h-[60vh] min-h-[400px]">
           <Image
-            src="/images/street-of-dreams.webp"
-            alt="Luxury interior design by Greylyn Wayne"
+            src="/images/hero-interior.webp"
+            alt="Luxury interior design by Greylyn Wayne — Alla Famiglia Street of Dreams dining room in Portland, Oregon with modern chandelier and custom cabinetry"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-charcoal/50" />
+          <div className="absolute inset-0 bg-charcoal/45" />
           <div className="absolute inset-0 flex items-center">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <p className="text-teal-light text-sm tracking-[0.3em] uppercase mb-4">
-                Interior Design
+                Interior Design &middot; Portland, Oregon
               </p>
-              <h1 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl lg:text-6xl text-white max-w-2xl">
+              <h1 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl lg:text-6xl text-white max-w-2xl mb-6">
                 Spaces That Feel Beautiful & Livable
               </h1>
+              <Link
+                href="/contact"
+                className="bg-teal text-white px-8 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors font-medium"
+              >
+                Start Your Design Project
+              </Link>
             </div>
           </div>
         </div>
@@ -86,14 +143,14 @@ export default function InteriorDesignPage() {
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src="/images/home-staging-2.jpg"
-                alt="Interior design project in Portland"
+                alt="Modern Portland kitchen designed by Greylyn Wayne — white cabinetry, open shelving, herringbone backsplash, gold accents"
                 fill
                 className="object-cover"
               />
             </div>
             <div>
               <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl text-charcoal mb-6">
-                Design That Tells Your Story
+                Portland Interior Design That Tells Your Story
               </h2>
               <p className="text-charcoal-light leading-relaxed mb-6">
                 Whether refreshing a single room or undergoing a full remodel,
@@ -105,15 +162,22 @@ export default function InteriorDesignPage() {
               <p className="text-charcoal-light leading-relaxed mb-8">
                 Our design process includes space planning, mood boards,
                 furniture selection, and decor curation, ensuring every detail
-                fits your lifestyle and vision. From the initial consultation to
-                the final reveal, we&apos;re with you every step of the way.
+                fits your lifestyle and vision.
               </p>
-              <Link
-                href="/contact"
-                className="inline-block bg-teal text-white px-8 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors"
-              >
-                Start Your Project
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-block bg-teal text-white px-8 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors font-medium text-center"
+                >
+                  Book a Free Consultation
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="inline-block border border-charcoal/20 text-charcoal px-8 py-4 text-sm tracking-wider uppercase hover:bg-charcoal hover:text-white transition-colors text-center"
+                >
+                  View Portfolio
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -127,7 +191,7 @@ export default function InteriorDesignPage() {
               What We Offer
             </p>
             <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl text-charcoal">
-              Our Design Services
+              Interior Design Services in Portland
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -175,24 +239,24 @@ export default function InteriorDesignPage() {
               Our Process
             </p>
             <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl text-white">
-              How We Work
+              How Our Interior Design Process Works
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
                 step: "01",
-                title: "Discovery",
+                title: "Free Discovery Call",
                 desc: "We learn about your lifestyle, taste, and goals. A thorough walkthrough of your space sets the foundation for your design.",
               },
               {
                 step: "02",
-                title: "Design",
-                desc: "We develop mood boards, floor plans, and material palettes. You'll see the vision before any changes are made.",
+                title: "Design & Present",
+                desc: "We develop mood boards, floor plans, and material palettes. You'll see the full vision before any changes are made.",
               },
               {
                 step: "03",
-                title: "Deliver",
+                title: "Install & Reveal",
                 desc: "From procurement to installation to final styling, we bring the design to life and hand you the keys to your new space.",
               },
             ].map((item) => (
@@ -212,21 +276,50 @@ export default function InteriorDesignPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-teal text-sm tracking-[0.3em] uppercase mb-4">
+              Questions
+            </p>
+            <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl text-charcoal">
+              Interior Design FAQ
+            </h2>
+          </div>
+          <div className="space-y-8">
+            {designFaqs.map((faq, i) => (
+              <div key={i} className="border-b border-gray-200 pb-8">
+                <h3 className="font-[family-name:var(--font-playfair)] text-lg mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-charcoal-light text-sm leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-24 lg:py-32 text-center">
+      <section className="py-24 lg:py-32 bg-warm text-center">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl text-charcoal mb-6">
             Let&apos;s Design Your Dream Space
           </h2>
-          <p className="text-charcoal-light leading-relaxed mb-10">
-            Ready to transform your home? Schedule a consultation and
-            let&apos;s bring your vision to life.
+          <p className="text-charcoal-light leading-relaxed mb-4">
+            Ready to transform your Portland home? Schedule a free consultation
+            and let&apos;s bring your vision to life.
+          </p>
+          <p className="text-teal text-sm font-medium mb-10">
+            No obligation &middot; Free consultations for all projects
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-teal text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors"
+            className="inline-block bg-teal text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors font-medium"
           >
-            Book a Consultation
+            Book Your Free Consultation
           </Link>
         </div>
       </section>

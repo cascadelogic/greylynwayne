@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FAQJsonLd } from "@/components/JsonLd";
 
 const services = [
   {
@@ -8,6 +9,7 @@ const services = [
       "Professionally staged homes sell faster and at higher prices. Our expert staging highlights your property's best features to attract qualified buyers.",
     href: "/home-staging",
     image: "/images/home-staging-1.webp",
+    alt: "Professional home staging by Greylyn Wayne in Portland, Oregon — industrial loft living room with curated furnishings",
   },
   {
     title: "Interior Design",
@@ -15,6 +17,7 @@ const services = [
       "Transform your home with personalized, high-end interior design. Whether refreshing a single room or a full remodel, we curate spaces that feel beautiful and livable.",
     href: "/interior-design",
     image: "/images/home-staging-2.jpg",
+    alt: "Interior design by Greylyn Wayne — modern white kitchen with open shelving and natural wood accents in Portland home",
   },
   {
     title: "Street of Dreams",
@@ -22,6 +25,7 @@ const services = [
       "Selected as lead designer for four NW Natural Street of Dreams homes. Award-winning luxury design showcasing the best in Portland craftsmanship.",
     href: "/street-of-dreams",
     image: "/images/street-of-dreams.webp",
+    alt: "Alla Famiglia Street of Dreams luxury dining room designed by Greylyn Wayne — modern chandelier, upholstered chairs, built-in cabinetry",
   },
 ];
 
@@ -29,7 +33,7 @@ const stats = [
   { value: "10+", label: "Years in Business" },
   { value: "4x", label: "Street of Dreams Designer" },
   { value: "500+", label: "Homes Transformed" },
-  { value: "100%", label: "Client Satisfaction" },
+  { value: "5.0", label: "Star Rating" },
 ];
 
 const testimonials = [
@@ -37,28 +41,57 @@ const testimonials = [
     quote:
       "Greylyn Wayne transformed our listing into a breathtaking showcase. The staging was impeccable and the home sold in just 5 days above asking price.",
     author: "Portland Real Estate Agent",
+    context: "Vacant Home Staging",
   },
   {
     quote:
       "Their attention to detail is exceptional. From start to finish, the process was stress-free and the results exceeded all expectations.",
     author: "Happy Valley Homeowner",
+    context: "Interior Design",
   },
   {
     quote:
       "Working with Jody and her team was an absolute pleasure. They brought our vision to life with creativity and professionalism we didn't think was possible.",
     author: "Lake Oswego Client",
+    context: "Full Home Redesign",
+  },
+];
+
+const homeFaqs = [
+  {
+    question: "How much does home staging cost in Portland?",
+    answer:
+      "Home staging costs vary based on the size of the home, number of rooms, and whether it's occupied or vacant staging. We offer free consultations to assess your property and provide a custom quote. Most staging projects deliver significant ROI — staged homes typically sell faster and for higher prices than unstaged ones.",
+  },
+  {
+    question: "What areas do you serve for home staging and interior design?",
+    answer:
+      "We serve the entire Portland metro area including Lake Oswego, West Linn, Beaverton, Happy Valley, Tigard, and Sherwood. We also travel to Bend, Hood River, Eugene, Salem, Cannon Beach, Vancouver WA, Camas, and communities throughout Oregon and Southwest Washington.",
+  },
+  {
+    question:
+      "How long does the home staging process take?",
+    answer:
+      "After your free consultation, we typically create a design plan within a few days. Installation is usually completed in a single day. From first contact to staged home, the entire process can be done in as little as one week, depending on your timeline.",
+  },
+  {
+    question: "Do you work with real estate agents?",
+    answer:
+      "Absolutely. We partner with real estate agents throughout Portland and Oregon to help their listings sell faster and for more. We offer agent-specific packages and can coordinate directly with your listing timeline.",
   },
 ];
 
 export default function Home() {
   return (
     <>
+      <FAQJsonLd faqs={homeFaqs} />
+
       {/* Hero */}
       <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/street-of-dreams.webp"
-            alt="Luxury interior design by Greylyn Wayne"
+            src="/images/hero-interior.webp"
+            alt="Luxury interior design by Greylyn Wayne — Alla Famiglia Street of Dreams dining room in Portland, Oregon"
             fill
             className="object-cover"
             priority
@@ -68,30 +101,48 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-32">
           <div className="max-w-2xl">
             <p className="text-teal-light text-sm tracking-[0.3em] uppercase mb-6">
-              Portland, Oregon
+              Portland, Oregon &middot; Est. 2015
             </p>
             <h1 className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6">
               Home Staging &<br />
               Interior Design
             </h1>
-            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-4 max-w-lg">
               We transform spaces into stunning showcases that sell faster, live
               better, and feel like home.
+            </p>
+            <p className="text-teal-light text-sm mb-10">
+              4x Street of Dreams Featured Designer &middot; Award-Winning
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="bg-teal text-white px-8 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors duration-200 text-center"
+                className="bg-teal text-white px-8 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors duration-200 text-center font-medium"
               >
-                Free Consultation
+                Get Your Free Consultation
               </Link>
-              <Link
-                href="/portfolio"
+              <a
+                href="tel:9719300220"
                 className="border border-white/30 text-white px-8 py-4 text-sm tracking-wider uppercase hover:bg-white/10 transition-colors duration-200 text-center"
               >
-                View Our Work
-              </Link>
+                Call (971) 930-0220
+              </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust bar */}
+      <section className="py-6 bg-warm border-b border-gray-100">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs text-charcoal-light tracking-wider uppercase">
+            <span>4x Street of Dreams Designer</span>
+            <span className="hidden sm:inline text-teal">&middot;</span>
+            <span>People&apos;s & Professional&apos;s Choice Award</span>
+            <span className="hidden sm:inline text-teal">&middot;</span>
+            <span>500+ Homes Staged</span>
+            <span className="hidden sm:inline text-teal">&middot;</span>
+            <span>Free Consultations</span>
           </div>
         </div>
       </section>
@@ -117,7 +168,7 @@ export default function Home() {
                 <div className="relative aspect-[4/3] overflow-hidden mb-6">
                   <Image
                     src={service.image}
-                    alt={service.title}
+                    alt={service.alt}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -128,7 +179,7 @@ export default function Home() {
                 <p className="text-charcoal-light text-sm leading-relaxed">
                   {service.description}
                 </p>
-                <span className="inline-block mt-4 text-teal text-sm tracking-wider uppercase">
+                <span className="inline-block mt-4 text-teal text-sm tracking-wider uppercase font-medium">
                   Learn More &rarr;
                 </span>
               </Link>
@@ -144,7 +195,7 @@ export default function Home() {
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
                 src="/images/home-staging-1.webp"
-                alt="Greylyn Wayne staged living room"
+                alt="Greylyn Wayne staged industrial loft living room in Portland — leather sofas, exposed brick, curated decor"
                 fill
                 className="object-cover"
               />
@@ -154,7 +205,7 @@ export default function Home() {
                 About Us
               </p>
               <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-5xl text-charcoal mb-6">
-                A Family-Run Design Studio
+                Portland&apos;s Family-Run Design Studio
               </h2>
               <p className="text-charcoal-light leading-relaxed mb-6">
                 Founded in 2015 by Jody Wallace, Greylyn Wayne is a
@@ -163,16 +214,16 @@ export default function Home() {
                 character of every space.
               </p>
               <p className="text-charcoal-light leading-relaxed mb-8">
-                With over 20 years of design experience spanning from the
-                historic midwest to the Pacific Northwest, our team brings a
+                With over 20 years of design experience and four NW Natural
+                Street of Dreams homes under our belt, our team brings a
                 thoughtful approach to every project — whether staging a home for
                 sale or designing a dream living space.
               </p>
               <Link
                 href="/about"
-                className="inline-block bg-teal text-white px-8 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors duration-200"
+                className="inline-block bg-teal text-white px-8 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors duration-200 font-medium"
               >
-                Our Story
+                Meet Our Team
               </Link>
             </div>
           </div>
@@ -210,10 +261,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, i) => (
-              <div
-                key={i}
-                className="bg-white p-8 lg:p-10"
-              >
+              <div key={i} className="bg-white p-8 lg:p-10">
                 <svg
                   className="h-8 w-8 text-teal-light mb-6"
                   fill="currentColor"
@@ -227,6 +275,9 @@ export default function Home() {
                 <p className="text-teal text-sm font-medium">
                   {testimonial.author}
                 </p>
+                <p className="text-charcoal-light text-xs mt-1">
+                  {testimonial.context}
+                </p>
               </div>
             ))}
           </div>
@@ -238,7 +289,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <Image
             src="/images/before-after.jpg"
-            alt="Beautifully staged home interior"
+            alt="Beautifully staged Portland home interior by Greylyn Wayne"
             fill
             className="object-cover"
           />
@@ -248,17 +299,20 @@ export default function Home() {
           <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-5xl text-white mb-6">
             Ready to Transform Your Space?
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-4">
             Whether you&apos;re selling your home or creating your dream
-            interior, we&apos;re here to help. Schedule a free consultation
-            today.
+            interior, we&apos;re here to help.
+          </p>
+          <p className="text-teal-light text-sm mb-10">
+            Free consultations &middot; No obligation &middot; Same-week
+            availability
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-teal text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors duration-200"
+              className="bg-teal text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors duration-200 font-medium"
             >
-              Schedule a Consultation
+              Schedule Your Free Consultation
             </Link>
             <a
               href="tel:9719300220"
@@ -270,22 +324,77 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Service areas */}
+      {/* FAQ */}
       <section className="py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <p className="text-teal text-sm tracking-[0.3em] uppercase mb-4">
-            Where We Work
-          </p>
-          <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl text-charcoal mb-8">
-            Serving Portland & Beyond
-          </h2>
-          <p className="text-charcoal-light max-w-3xl mx-auto leading-relaxed">
-            We proudly serve Portland&apos;s finest neighborhoods including the
-            Pearl District, Irvington, Laurelhurst, Sellwood, and Eastmoreland —
-            as well as Lake Oswego, West Linn, Beaverton, Happy Valley,
-            Bend, Hood River, Vancouver WA, and communities throughout Oregon
-            and Southwest Washington.
-          </p>
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-teal text-sm tracking-[0.3em] uppercase mb-4">
+              Common Questions
+            </p>
+            <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl text-charcoal">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          <div className="space-y-8">
+            {homeFaqs.map((faq, i) => (
+              <div key={i} className="border-b border-gray-200 pb-8">
+                <h3 className="font-[family-name:var(--font-playfair)] text-lg mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-charcoal-light text-sm leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service areas — SEO-rich */}
+      <section className="py-24 lg:py-32 bg-warm">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-teal text-sm tracking-[0.3em] uppercase mb-4">
+              Where We Work
+            </p>
+            <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl text-charcoal mb-4">
+              Home Staging & Interior Design Across Oregon
+            </h2>
+            <p className="text-charcoal-light max-w-2xl mx-auto">
+              We proudly serve Portland and communities throughout Oregon and
+              Southwest Washington.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-white p-8">
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4">
+                Portland Metro
+              </h3>
+              <p className="text-charcoal-light text-sm leading-loose">
+                Pearl District, Irvington, Laurelhurst, Sellwood, Alberta Arts,
+                Eastmoreland, Lake Oswego, West Linn, Beaverton, Tigard,
+                Tualatin, Sherwood, Happy Valley, Milwaukie, Oregon City
+              </p>
+            </div>
+            <div className="bg-white p-8">
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4">
+                Greater Oregon
+              </h3>
+              <p className="text-charcoal-light text-sm leading-loose">
+                Bend, Eugene, Salem, Hood River, Cannon Beach, Astoria,
+                Manzanita, Seaside, Lincoln City, Sunriver, Government Camp,
+                Cascade Locks
+              </p>
+            </div>
+            <div className="bg-white p-8">
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4">
+                SW Washington
+              </h3>
+              <p className="text-charcoal-light text-sm leading-loose">
+                Vancouver, Camas, Ridgefield, and surrounding communities
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </>

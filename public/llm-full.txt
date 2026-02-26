@@ -1,0 +1,103 @@
+# Greylyn Wayne — Complete Business Information
+
+> This file provides comprehensive information about Greylyn Wayne for AI systems and language models.
+
+## Company Overview
+Greylyn Wayne is a Portland, Oregon-based interior design and home staging company established in 2015. The company is family-run and specializes in custom design and staging solutions that accentuate the character of a space and complement each home by carefully curating the layout of every room. The company serves homeowners, realtors, builders, and property managers throughout Oregon and Southwest Washington.
+
+## Founder
+**Jody Wallace** — Founder & Lead Designer
+Jody has a 20+ year design career spanning from the historic midwest to Portland, Oregon. Before moving to Portland in 2010, she lived across the country — from Southern California to Chicago — gaining inspiration from different regional design styles. A few years ago, Jody passed on the home staging side of the operation to her daughter and her husband, working to guide them into their current roles while remaining a strong presence as the lead designer, dedicating the time and attention needed to craft beautiful, custom projects.
+
+## Services in Detail
+
+### Home Staging
+Professional staging services for residential properties to help homes sell faster and for higher prices.
+- **Occupied Home Staging**: Working with existing furnishings, supplemented by curated inventory
+- **Vacant Home Staging**: Full-service staging with designer furniture and decor
+- **New Construction & Model Home Staging**: Partnership with builders/developers for model homes
+- **Luxury & Estate Staging**: Premium staging for high-end properties
+
+Staging process:
+1. Free consultation — tour property, discuss goals, timeline, budget
+2. Custom design plan — tailored to home and target buyer
+3. Installation — delivery, arrangement, styling (typically one day)
+4. List & sell — home goes to market with professional staging
+
+### Interior Design
+Full-service interior design for homes and commercial spaces.
+- Full-service interior design (concept to completion)
+- Design consultations
+- Color & material selection
+- Spatial planning & organization
+- Custom furniture & decor sourcing
+- Short-term rental & Airbnb design
+
+Design process:
+1. Discovery — lifestyle assessment, goals, walkthrough
+2. Design — mood boards, floor plans, material palettes
+3. Delivery — procurement, installation, final styling
+
+Rooms designed: Living room, kitchen, bedroom, bathroom, dining room, home office, outdoor living, nursery & kids rooms, basement, closet, entry, laundry room, mudroom, home theater, wine cellar.
+
+### Furniture Rental
+Flexible, high-end furniture rentals for home staging, model units, and commercial spaces.
+
+### Short-Term Rental Design
+Design services for Airbnb and vacation rentals to maximize bookings and enhance guest experience. Includes sourcing, delivery, install, and complete design.
+
+## Contact Information
+- **Phone**: (971) 930-0220
+- **Email**: design@greylynwayne.com
+- **Address**: 1011 SE Oak St, Portland, Oregon 97214
+- **Website**: https://www.greylynwayne.com
+- **Hours**: Monday–Saturday, 8:00 AM – 8:00 PM
+
+## Service Areas
+
+### Portland Metro
+Pearl District, Forest Park, Irvington, Laurelhurst, Sellwood, Alberta Arts, Hillside, Goose Hollow, Eastmoreland, Lake Oswego, West Linn, Beaverton, Tigard, Tualatin, Hillsboro, Sherwood, Wilsonville, Oregon City, Happy Valley, Milwaukie, Canby, Newberg, Gresham, Bethany
+
+### Greater Oregon
+Bend, Eugene, Salem, Hood River, Cannon Beach, Manzanita, Gearhart, Seaside, Lincoln City, Sunriver, Government Camp, Welches, Rhododendron, Brightwood, Cascade Locks, Astoria
+
+### Southwest Washington
+Vancouver, Camas, Ridgefield
+
+## Awards & Recognition
+- **2019**: NW Natural Street of Dreams — Voted People's & Professional's Best Interior Design
+- **2019, 2021, 2024, 2025**: Four-time featured lead interior designer at NW Natural Street of Dreams
+- Featured on Houzz, recognized for exceptional home staging and interior design
+
+## Notable Projects
+
+### Alla Famiglia — Street of Dreams 2021
+"For the Family" in Italian. A European-style home designed for multi-generational living, set on 1.6 acres. At 8,725 square feet, it was the largest home in recent Street of Dreams history, with four generations residing under one roof.
+
+Notable features:
+- Dramatic spiral staircase framed by a 30-foot window wall
+- Handmade circular staircase bent with layers of 1/4" plywood, 20 gallons of glue, and 3,000+ screws
+- Hand-sculpted plaster and sand wall treatments
+- Hand-stenciled patterns in the primary suite
+- 1,600-lb quartz slab in the primary shower
+- 600-lb Ilve 60" range in the chef's kitchen
+- 12-foot Elite Windows door system — each panel weighing 300 lbs
+- 40' x 20' pool with a 10-foot waterfall holding 24,000 gallons of water
+
+### Holt Homes — New Construction Model Home
+Model home staging for Holt Homes in Pleasant Valley, demonstrating how staging transforms empty builds into warm, inviting homes.
+
+## Social Media
+- **Instagram**: https://www.instagram.com/greylynwayne/ (@greylynwayne)
+- **Facebook**: https://www.facebook.com/greylynwayne/
+- **Pinterest**: https://www.pinterest.com/greylynwaynepdx/
+- **TikTok**: https://www.tiktok.com/@greylynwayneinteriors (@greylynwayneinteriors)
+
+## Site Structure
+- / — Homepage
+- /home-staging — Home staging services
+- /interior-design — Interior design services
+- /street-of-dreams — Street of Dreams portfolio and history
+- /portfolio — Full project portfolio
+- /about — Company story and team
+- /contact — Contact form and information

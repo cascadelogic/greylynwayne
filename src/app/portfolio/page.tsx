@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Home Staging & Interior Design Portfolio",
+  title: "Home Staging & Interior Design Portfolio | Portland, Oregon",
   description:
-    "Explore our home staging and interior design portfolio featuring beautifully styled spaces across Portland, Oregon. See our work and book a consultation today!",
+    "Explore our home staging and interior design portfolio featuring beautifully styled spaces across Portland, Oregon. Street of Dreams, luxury estates, and residential staging. Book a consultation — (971) 930-0220.",
+  alternates: { canonical: "https://www.greylynwayne.com/portfolio" },
+  openGraph: {
+    title: "Home Staging & Interior Design Portfolio | Greylyn Wayne",
+    description:
+      "Explore our portfolio of beautifully styled spaces in Portland, Oregon. Street of Dreams, luxury estates, and residential staging.",
+    url: "https://www.greylynwayne.com/portfolio",
+    images: [{ url: "/images/og-image.png" }],
+  },
 };
 
 const projects = [
@@ -34,6 +43,13 @@ const projects = [
 export default function PortfolioPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Portfolio", href: "/portfolio" },
+        ]}
+      />
+
       {/* Hero */}
       <section className="pt-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24 lg:py-32">
@@ -115,9 +131,9 @@ export default function PortfolioPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-teal text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors"
+            className="inline-block bg-teal text-white px-10 py-4 text-sm tracking-wider uppercase hover:bg-teal-dark transition-colors font-medium"
           >
-            Start a Project
+            Get Your Free Consultation
           </Link>
         </div>
       </section>
