@@ -11,35 +11,11 @@ type NavItem = {
 };
 
 const navigation: NavItem[] = [
-  {
-    name: "Services",
-    href: "/home-staging",
-    children: [
-      { name: "Home Staging", href: "/home-staging" },
-      { name: "New Construction Staging", href: "/new-construction-staging" },
-      { name: "Interior Design", href: "/interior-design" },
-      { name: "Short-Term Rental Design", href: "/short-term-rental-design" },
-    ],
-  },
-  {
-    name: "Portfolio",
-    href: "/portfolio",
-    children: [
-      { name: "Our Work", href: "/portfolio" },
-      { name: "Before & After", href: "/before-and-after" },
-      { name: "Street of Dreams", href: "/street-of-dreams" },
-    ],
-  },
+  { name: "Home Staging", href: "/home-staging" },
+  { name: "Interior Design", href: "/interior-design" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Reviews", href: "/reviews" },
-  {
-    name: "About",
-    href: "/about",
-    children: [
-      { name: "About Us", href: "/about" },
-      { name: "Meet Jody Wallace", href: "/meet-jody-wallace" },
-      { name: "Service Areas", href: "/service-areas" },
-    ],
-  },
+  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
